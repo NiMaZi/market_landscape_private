@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$scitodate-primary: mat-palette($mat-red);
+$scitodate-accent: mat-palette($mat-orange, A200, A100, A400);
+$scitodate-warn: mat-palette($mat-red);
+
+$scitodate-theme: mat-light-theme($scitodate-primary, $scitodate-accent, $scitodate-warn);
+
+@include angular-material-theme($scitodate-theme);

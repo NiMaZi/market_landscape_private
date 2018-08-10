@@ -1,0 +1,34 @@
+<div class="sd-content" fxLayout="column">
+  <mat-card class="sd-card">
+    <app-filter-bar
+      level="Country"
+      [selection]="params.countryid"
+    >
+    </app-filter-bar>
+  </mat-card>
+
+  <mat-card class="sd-card" fxLayout="column">
+
+    <div class="country-header">
+      <span fxFlex> {{ params.countryid }} </span>
+    </div>
+
+    <mat-card-content
+      fxLayout="row wrap"
+      fxLayout.md="column">
+
+      <div style="float:left; height: 500px;"> <!-- TODO: Fit screen -->
+        <app-map
+          fxFlex
+          [countryCode]="params.countryid"
+          [inWorldView]="false">
+        </app-map>
+      </div>
+      <div style="float:left;">
+        <app-sidebar
+          [viewControl]="'country'"
+        ></app-sidebar>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

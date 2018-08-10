@@ -1,0 +1,33 @@
+<div class="sd-content" fxLayout="column">
+
+  <div class="map-content" fxLayout="row" fxLayoutGap="20px">
+
+    <div class="map-leaflet"
+         leaflet
+         [leafletOptions]="options"
+         [leafletLayers]="layers"
+         (leafletMapReady)="mapReady($event)"
+         (leafletMarkerClusterReady)="clusterReady($event)"
+         fxFlex>
+    </div>
+
+    <div class="map-spinner"
+         fxFlex
+         fxLayout="row"
+         fxLayoutAlign="center center"
+         *ngIf="loading">
+
+      <mat-spinner diameter="50"></mat-spinner>
+
+    </div>
+
+    <div class="map-stats"
+         fxFlex
+         fxLayout="column"
+         *ngIf="!loading">
+
+    </div>
+
+  </div>
+
+</div>

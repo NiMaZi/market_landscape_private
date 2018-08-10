@@ -1,0 +1,13 @@
+<a routerLink="/{{ project.label }}/explore" *ngFor="let project of projects">
+  <mat-card class="sd-card" fxLayout="column">
+    <mat-card-title fxLayout="row">
+      <span>{{ project.name }}</span>
+      <span fxFlex></span>
+    </mat-card-title>
+
+    <mat-card-content>
+      Project Summary
+    </mat-card-content>
+
+  </mat-card>
+</a>

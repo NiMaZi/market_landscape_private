@@ -1,0 +1,39 @@
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      [formControl]="countryQuery"
+      [matAutocomplete]="countryAuto"
+    />
+  </mat-form-field>
+
+  <mat-autocomplete #countryAuto="matAutocomplete">
+    <mat-option
+      *ngFor="let country of countryOptions | async"
+      [value]="country"
+    >
+      {{ country }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      [formControl]="institutionQuery"
+      [matAutocomplete]="institutionAuto"
+    />
+  </mat-form-field>
+
+  <mat-autocomplete #institutionAuto="matAutocomplete">
+    <mat-option
+      *ngFor="let inst of instOptions | async"
+      [value]="inst"
+    >
+      {{ inst }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <button type="submit" mat-raised-button color="primary">Search</button>
+</form>

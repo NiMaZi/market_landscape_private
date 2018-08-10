@@ -1,0 +1,54 @@
+<mat-card>    
+
+      <mat-card *ngIf="status=='selected'">
+        <mat-card-header>
+        <mat-card-title>{{selectedAuthor.name}}  <a mat-raised-button href="{{selectedAuthor.googlelink}}" target="_blank">Google</a>
+        <button mat-raised-button (click)="goBack()">Back</button></mat-card-title>
+        <mat-card-subtitle>{{selectedAuthor.affstr}}</mat-card-subtitle>
+        <mat-card-subtitle>{{selectedAuthor.npapers}} publication(s)</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+    <div *ngIf="status=='overview'&&viewControl=='institution'">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <span>{{numAuthors}} author(s)</span>
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+
+    <mat-card>
+    <div style="float:top;" id="legend-container"></div>
+    </mat-card>
+
+    <div *ngIf="status=='overview'&&viewControl=='institution'">  
+      <mat-card>
+      <mat-radio-group (change)="getRadioChange($event)">
+        <mat-radio-button value="pop">popularity</mat-radio-button>
+        <mat-radio-button value="mat" checked="true">match</mat-radio-button>
+      </mat-radio-group>
+      </mat-card>
+    </div>
+
+    <mat-card>
+    <div style="float:top;" id="bar-container"></div>
+    </mat-card>
+    
+    <mat-card *ngIf="status=='selected'">
+        <mat-card-header>
+        <mat-card-title>Latest Keywords:</mat-card-title></mat-card-header>
+        <button mat-flat-button style="margin:2px;" *ngFor="let keyword of selectedAuthor.keywords">{{keyword}}</button>
+      </mat-card>
+
+      <mat-card *ngIf="status=='selected'">
+        <mat-card-header><mat-card-title>Latest Papers:</mat-card-title></mat-card-header>
+        <mat-card *ngFor="let paper of selectedAuthor.papers">
+        <mat-card-header>
+          <mat-card-title><a href="{{'https://www.ncbi.nlm.nih.gov/pubmed/?term='+paper.title.replace(' ','%20')}}" target="_blank">{{paper.title}}</a></mat-card-title>
+          <mat-card-subtitle>{{paper.date}}</mat-card-subtitle>
+        </mat-card-header>
+        </mat-card>
+      </mat-card>
+</mat-card>

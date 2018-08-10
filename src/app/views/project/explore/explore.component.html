@@ -1,0 +1,41 @@
+<div fxFlex fxLayout="column">
+
+  <mat-card class="sd-card">
+    <app-filter-bar level="World"></app-filter-bar>
+  </mat-card>
+
+  <mat-card class="sd-card" fxLayout="column">
+    <mat-card-title fxLayout="row">
+      <span>Explore</span>
+      <span fxFlex></span>
+    </mat-card-title>
+
+    <mat-card-content
+      fxLayout="row wrap"
+      fxLayout.md="column">
+
+      <div
+        fxFlex="50"
+        fxLayout="column"
+        *ngFor="let country of countryList"
+        class="country-container"
+        >
+
+        <div class="country-header"
+             (click)="transition(country.label)">
+          <span fxFlex> {{ country.name }} </span>
+        </div>
+
+        <app-map
+          fxFlex
+          [countryCode]="country.label"
+          [inWorldView]="true">
+        </app-map>
+
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

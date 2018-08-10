@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body, html {
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: rgba(250, 250, 250, 1);
+
+  font-family: 'Lato', sans-serif;
+}
+
+.sd-content {
+  width: 100%;
+  height: 100%;
+}
+
+.sd-padding {
+  padding: 10px;
+}
+
+.sd-card {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.sd-card mat-card-title,
+.sd-card mat-icon {
+  font-size: 20px;
+}
+
+.sd-card mat-card-title {
+  color: rgba(255, 41, 45, 1);
+}
+
+.sd-icon-button {
+  color: rgba(0, 0, 0, 0.12);
+}
+
+.sd-icon-button:hover {
+  color: rgba(255, 41, 45, 1);
+}

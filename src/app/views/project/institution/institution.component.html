@@ -1,0 +1,27 @@
+<div class="sd-content" fxLayout="column">
+  <mat-card class="sd-card">
+    <app-filter-bar
+      level="Institution"
+      [selection]="params.instid"
+    >
+    </app-filter-bar>
+  </mat-card>
+
+  <mat-card class="sd-card" fxLayout="column">
+    <div style="height: 500px;"> <!-- TODO: Fit screen -->
+      <div class="loading-icon" *ngIf="status=='loading'">
+            <mat-spinner style="margin:0 auto;"></mat-spinner>
+      </div>
+
+      <div class="{{(status=='loading')?'graph-loading':'graph-show'}}" fxLayout="column">
+          <div id="graph-container"></div>
+      </div>
+
+      <div class="panel" fxLayout="column">
+        <app-sidebar
+          [viewControl]="'institution'"
+        ></app-sidebar>
+      </div>
+    </div>
+  </mat-card>
+</div>
